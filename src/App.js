@@ -121,7 +121,7 @@ return (
  
   <button className="w-[200px] bg-purple-500 border-2 mx-auto p-3 rounded  text-white border-whitefont-bold hover:bg-purple-500 hover:text-white hover:border-white text-xl justify-center align-center items-center"
   onClick={shuffleCards}>Easy Game</button> 
-  <button onClick={shuffleCardsHardGame} className="w-[200px]  border-2 mx-auto p-3 rounded bg-purple-500 text-white border-white font-bold hover:bg-purple-500 hover:text-white hover:border-white text-xl justify-center align-center items-center">Hard Game</button></div>
+  <button onClick={shuffleCardsHardGame} className="w-[200px]  border-2 mx-auto p-3 rounded bg-purple-500 text-white border-white  hover:bg-purple-500 hover:text-white hover:border-white text-xl justify-center align-center items-center">Hard Game</button></div>
   </div>
   }
   
