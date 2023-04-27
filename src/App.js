@@ -110,18 +110,18 @@ console.log(setItemToRemove)
 
 
 return (
-<div className="h-screen w-full bg-black relative items-center sm:h-full">
+<div className="h-screen w-full bg-red-4 relative items-center sm:h-full">
  
   <div className="h-[100px] flex items-center"> 
-  {game ?   <button className="w-[200px] border-2 mx-auto p-3 rounded  text-purple-500 border-purple-500 font-bold hover:bg-purple-500 hover:text-white hover:border-white text-xl justify-center align-center items-center"
+  {game ?   <button className="w-[200px] border-2 mx-auto p-3 rounded  text-white bg-purple-500 border-white font-bold hover:bg-purple-500 hover:text-white hover:border-white text-xl justify-center align-center items-center"
   onClick={() => window.location.reload()}>Back</button> :
   <div className="w-full sm:w-auto text-center">
     <p className="text-white font-bold m-2 sha">Choose difficulty</p>
   <div className="flex justify-center gap-2">  
  
-  <button className="w-[200px] border-2 mx-auto p-3 rounded  text-purple-500 border-purple-500 font-bold hover:bg-purple-500 hover:text-white hover:border-white text-xl justify-center align-center items-center"
+  <button className="w-[200px] bg-purple-500 border-2 mx-auto p-3 rounded  text-white border-whitefont-bold hover:bg-purple-500 hover:text-white hover:border-white text-xl justify-center align-center items-center"
   onClick={shuffleCards}>Easy Game</button> 
-  <button onClick={shuffleCardsHardGame} className="w-[200px]  border-2 mx-auto p-3 rounded  text-purple-500 border-purple-500 font-bold hover:bg-purple-500 hover:text-white hover:border-white text-xl justify-center align-center items-center">Hard Game</button></div>
+  <button onClick={shuffleCardsHardGame} className="w-[200px]  border-2 mx-auto p-3 rounded bg-purple-500 text-white border-white font-bold hover:bg-purple-500 hover:text-white hover:border-white text-xl justify-center align-center items-center">Hard Game</button></div>
   </div>
   }
   
