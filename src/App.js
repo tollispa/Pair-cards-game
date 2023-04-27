@@ -140,7 +140,7 @@ const [itemToRemove, setItemToRemove] = useState([])
  
  
   return (
-    <div className="h-screen w-full bg-black relative items-center">
+    <div className="h-screen w-full bg-black relative items-center sm:h-full">
      
       <div className="h-[100px] flex items-center"> 
       {game ?   <button className="w-[200px] border-2 mx-auto p-3 rounded  text-purple-500 border-purple-500 font-bold hover:bg-purple-500 hover:text-white hover:border-white text-xl justify-center align-center items-center"
@@ -158,7 +158,7 @@ const [itemToRemove, setItemToRemove] = useState([])
       {cards.map((card) => {
        return (
         <div key={card.id} className="w-[40%]  sm:w-[20%] p-2">
-          <img  onClick={() => chooseCard(card.title)} className="object-fit cursor-pointer w-full h-[130px] sm:h-full rounded border-4 border-purple-500" src={card.src} alt="/"/>
+          <img  onClick={() => chooseCard(card.title)} className="object-fit cursor-pointer w-full h-[130px] sm:h-[200px] rounded border-4 border-purple-500" src={card.src} alt="/"/>
         </div>
        )
       })
