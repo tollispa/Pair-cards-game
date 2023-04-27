@@ -136,7 +136,7 @@ const [itemToRemove, setItemToRemove] = useState([])
    }
  
  
- 
+   console.log(setItemToRemove)
  
  
   return (
