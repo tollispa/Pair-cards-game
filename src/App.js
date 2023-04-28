@@ -9,7 +9,7 @@ const [selectedCard2, setSelectedCard2] = useState("")
 const [game, setGame] = useState(false)
 const [chosenCardCount, setChosenCardCount] = useState(0)
 const [msg, setMsg] = useState("")
-
+const [wrongGuessCount, setWrongGuessCount] = useState(0)
 const [removeItem, setRemoveItem] = useState("")
 const [itemToRemove, setItemToRemove] = useState([])
 const countingPairs = images.length / 2
@@ -67,9 +67,12 @@ const chooseCard = (src) => {
   }
 
   if(countPair === 0){
-    return <div className="text-center">
+    return <div className="text-center relative h-screen">
     <h1 className="text-green-400 m-2 font-bold text-xl">Game completed!</h1>
-    <button className="text-purple-400 border border-purple-400 rounded m-1 p-1 font-bold" onClick={() => window.location.reload()}>Back to Home</button>
+    <p className="text-white">You guessed wrong ({wrongGuessCount}) times! Try again?</p>
+    <button className="bg-blue-400 m-2 p-2 rounded text-white font-bold" onClick={() => window.location.reload()}>Back to Home</button>
+    <img className="h-[full] sm:hidden" src="https://i.pinimg.com/originals/db/3c/69/db3c6932ab7f48aa37911fa229efa7ba.jpg" alt="/"/>
+    <p className="text-gray-300 mt-20 text-sm mr-10">This game was created by Tollis Papadopoulos.</p>
   </div>
   
   }
@@ -101,6 +104,7 @@ console.log(itemToRemove)
 if(selectedCard !== "" && selectedCard2 !== ""){
 setChosenCardCount(0)
 setMsg("Wrong answer!")
+setWrongGuessCount(wrongGuessCount +1)
 setSelectedCard("")
 setSelectedCard2("")
 }
@@ -110,27 +114,32 @@ console.log(setItemToRemove)
 
 
 return (
-<div className="h-screen w-full bg-red-4 relative items-center sm:h-full">
+<div className="h-screen w-full relative items-center sm:h-full">
  
-  <div className="h-[100px] flex items-center"> 
-  {game ?   <button className="w-[200px] border-2 mx-auto p-3 rounded  text-white bg-purple-500 border-white font-bold hover:bg-purple-500 hover:text-white hover:border-white text-xl justify-center align-center items-center"
+  <div className="h-auto flex items-center relative"> 
+  {game ?   <button className="w-full sm:w-[200px]  border-2 m-2 p-3 rounded  text-white bg-purple-500 border-white font-bold hover:bg-purple-500 hover:text-white hover:border-white text-xl justify-center align-center items-center"
   onClick={() => window.location.reload()}>Back</button> :
-  <div className="w-full sm:w-auto text-center">
+  <div className="w-full h-screen sm:w-auto flex flex-col items-center justify-center sm:justify-start mt-20 border">
     <p className="text-white font-bold m-2 sha">Choose difficulty</p>
   <div className="flex justify-center gap-2">  
  
-  <button className="w-[200px] bg-purple-500 border-2 mx-auto p-3 rounded  text-white border-whitefont-bold hover:bg-purple-500 hover:text-white hover:border-white text-xl justify-center align-center items-center"
+  <button className="w-[150px] bg-purple-500 border-2 mx-auto p-3 rounded  text-white border-whitefont-bold hover:bg-purple-500 hover:text-white hover:border-white text-xl justify-center align-center items-center"
   onClick={shuffleCards}>Easy Game</button> 
-  <button onClick={shuffleCardsHardGame} className="w-[200px]  border-2 mx-auto p-3 rounded bg-purple-500 text-white border-white  hover:bg-purple-500 hover:text-white hover:border-white text-xl justify-center align-center items-center">Hard Game</button></div>
+  <button onClick={shuffleCardsHardGame} className="w-[150px]  border-2 mx-auto p-3 rounded bg-purple-500 text-white border-white  hover:bg-purple-500 hover:text-white hover:border-white text-xl justify-center align-center items-center">Hard Game</button></div>
+  <p className="text-gray-300 font-bold ml-3 mt-5 underline">Your task is to find the pairs of pictures that match each other. Goodluck!</p>
+  <img className="absolute top-20 sm:hidden" src="https://i.pinimg.com/originals/db/3c/69/db3c6932ab7f48aa37911fa229efa7ba.jpg" alt="/"/>
   </div>
   }
   
  
   </div>
-  <p className="text-white font-bold ml-3 underline">Your task is to find the pairs of pictures that match each other. Goodluck!</p>
-  <p className="text-purple-500 font-bold text-xl m-2 sm:absolute sm:top-2 sm:left-2 transition-all duration-500 ease-in-out">{msg}</p>
-  {game? <p className="text-white justify-center  text-xl ml-3">Selected cards: <span className="text-green-400 font-bold transition-all duration-500 ease-in-out">{chosenCardCount}</span> </p> :null }
-  {game? <p className="text-white justify-center text-xl ml-3">Cards left to pair: <span className="text-green-400 font-bold transition-all duration-500 ease-in-out">{countPair}</span></p> :null }
+
+  <p className="text-purple-500 font-bold text-xl m-2 sm:absolute sm:top-2 sm:right-2 transition-all duration-500 ease-in-out">{msg}</p>
+  {game? <p className="text-white justify-center  text-xl ml-3">Selected cards: (<span className="text-yellow-400 font-bold transition-all duration-500 ease-in-out">{chosenCardCount}</span>)</p> :null }
+  {game? <p className="text-white justify-center text-xl ml-3">Cards left to pair: <span className="text-yellow-400 font-bold transition-all duration-500 ease-in-out">{countPair}</span></p> :null }
+  {game? <p className=" text-white justify-center text-xl ml-3">Wrong Guesses: <span className="text-red-400 font-bold transition-all duration-500 ease-in-out">{wrongGuessCount}</span></p> :null }
+  {game? <p className="text-gray-400 text-sm ml-3">You win when "Cards left to pair" reaches 0!</p> :null }
+
   <div className="flex gap-0.5 flex-wrap relative text-center justify-center ">
   {cards.map((card) => {
    return (
