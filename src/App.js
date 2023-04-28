@@ -119,7 +119,7 @@ return (
   <div className="h-auto flex items-center relative"> 
   {game ?   <button className="w-full sm:w-[200px]  border-2 m-2 p-3 rounded  text-white bg-purple-500 border-white font-bold hover:bg-purple-500 hover:text-white hover:border-white text-xl justify-center align-center items-center"
   onClick={() => window.location.reload()}>Back</button> :
-  <div className="w-full h-screen sm:w-auto flex flex-col items-center justify-center sm:justify-start mt-20 border">
+  <div className="w-full h-screen sm:w-auto flex flex-col items-center justify-center sm:justify-start mt-20">
     <p className="text-white font-bold m-2 sha">Choose difficulty</p>
   <div className="flex justify-center gap-2">  
  
