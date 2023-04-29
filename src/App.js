@@ -69,7 +69,7 @@ const chooseCard = (src) => {
 
 
 if(selectedCard === selectedCard2 && selectedCard2 !== "" && selectedCard !== ""){
-  setMsg("You guessed right!")
+  setMsg("Correct!")
   setChosenCardCount(0)
   setSelectedCard("")
   setSelectedCard2("")
@@ -92,7 +92,7 @@ console.log(itemToRemove)
 
 if(selectedCard !== "" && selectedCard2 !== ""){
 setChosenCardCount(0)
-setMsg("Wrong answer!")
+setMsg("Wrong answer! Try again!")
 setWrongGuessCount(wrongGuessCount +1)
 setSelectedCard("")
 setSelectedCard2("")
@@ -131,7 +131,7 @@ return (
  
   </div>
 
-  <p className="text-purple-500 font-bold text-xl m-2 sm:absolute sm:top-2 sm:right-2 transition-all duration-500 ease-in-out">{msg}</p>
+  <p className="text-white  border-b-2 border-[#ab1fc1] inline-block p-auto font-bold text-xl m-2 sm:absolute sm:top-2 sm:right-2 transition-all duration-500 ease-in-out">{msg}</p>
   {game? <p className="text-white justify-center  text-xl ml-3">Selected cards: (<span className="text-yellow-400 font-bold transition-all duration-500 ease-in-out">{chosenCardCount}</span>)</p> :null }
   {game? <p className="text-white justify-center text-xl ml-3">Cards left to pair: <span className="text-yellow-400 font-bold transition-all duration-500 ease-in-out">{countPair}</span></p> :null }
   {game? <p className=" text-white justify-center text-xl ml-3">Wrong Guesses: <span className="text-red-400 font-bold transition-all duration-500 ease-in-out">{wrongGuessCount}</span></p> :null }
